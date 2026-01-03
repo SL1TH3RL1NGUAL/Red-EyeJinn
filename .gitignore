@@ -1,0 +1,4 @@
+# Ignore IPFS cache and logs
+.ipfs/
+*.log
+*.tmp
