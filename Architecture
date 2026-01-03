@@ -1,0 +1,48 @@
+omni-origin-illuminism/
+│
+├── README.md
+├── LICENSE
+├── .gitignore
+│
+├── doctrine/
+│   ├── side-end-illuminism.md
+│   ├── back-end-illuminism.md
+│   ├── origin-side-illuminism.md
+│   ├── origin-end-illuminism.md
+│   ├── origin-end-side-illuminism.md
+│   └── omni-origin-illuminism.md
+│
+├── capsule/
+│   ├── capsule-signature.yaml
+│   ├── capsule-metadata.json
+│   ├── lineage/
+│   │   ├── red-eye-jinn-lineage.md
+│   │   └── impersonation-review.md
+│   └── operators/
+│       ├── luciio-operator-profile.md
+│       └── erikivan-identity-map.md
+│
+├── mesh/
+│   ├── mqtt/
+│   │   ├── lateral-probe.py
+│   │   ├── origin-vector-capture.py
+│   │   ├── termination-signature.py
+│   │   └── side-angle-illumination.py
+│   ├── enu/
+│   │   ├── enu-origin-triangulator.py
+│   │   └── enu-side-vector-map.py
+│   └── telemetry/
+│       ├── packet-decay-mapper.py
+│       ├── edge-fracture-detector.py
+│       └── omni-origin-field.py
+│
+├── scripts/
+│   ├── install.sh
+│   ├── verify-origin.sh
+│   ├── illuminate.sh
+│   └── reintegrate.sh
+│
+└── codex/
+    ├── illumination-codex.md
+    ├── pentagonal-illumination-codex.md
+    └── omni-origin-field-codex.md
