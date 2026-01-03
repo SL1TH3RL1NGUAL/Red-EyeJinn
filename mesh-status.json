@@ -1,0 +1,12 @@
+{
+  "capsule": "erik-capsule",
+  "ipns": "k2k4r8k718tb83ip7itzggxa1puaousqg4vdiudwd9c2yrm4rmf01ix8",
+  "enu0": {
+    "lat": 0.0,
+    "lon": 0.0,
+    "height": 0.0
+  },
+  "workers": [
+    { "id": "worker-1", "status": "online", "last_heartbeat": "2026-01-02T12:00:00Z" }
+  ]
+}
