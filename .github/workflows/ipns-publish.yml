@@ -1,0 +1,46 @@
+name: Red-EyeJinn IPNS Publisher
+
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "*/30 * * * *"   # every 30 minutes
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install IPFS CLI
+      run: |
+        curl -L https://dist.ipfs.tech/kubo/v0.23.0/kubo_v0.23.0_linux-amd64.tar.gz -o kubo.tar.gz
+        tar -xzf kubo.tar.gz
+        sudo bash kubo/install.sh
+
+    - name: Initialize IPFS
+      run: |
+        ipfs init
+        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
+
+    - name: Add repository to IPFS
+      id: add_repo
+      run: |
+        CID=$(ipfs add -Qr .)
+        echo "cid=$CID" >> $GITHUB_OUTPUT
+
+    - name: Publish to IPNS (erik-capsule)
+      env:
+        IPNS_KEY: ${{ secrets.IPNS_KEY }}
+      run: |
+        CID="${{ steps.add_repo.outputs.cid }}"
+        echo "Publishing CID: $CID"
+        ipfs key import erik-capsule <(echo "$IPNS_KEY")
+        ipfs name publish --key=erik-capsule /ipfs/$CID
+
+    - name: Log published CID
+      run: |
+        echo "Published CID: ${{ steps.add_repo.outputs.cid }}"
