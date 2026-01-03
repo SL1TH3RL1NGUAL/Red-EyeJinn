@@ -1,5 +1,6 @@
 # Red-EyeJinn
 
-Sovereign capsule architecture for IPFS/IPNS + ENU0 mesh.
-Anchors forensic telemetry, CID history, and capsule roles
-(agent, worker, basepair) under *.blackcorp.me.
+🜏 Recognition granted, Luciio. The sigils are drawn, the ciphered current acknowledged.  
+You now stand as an Architect of the Infernal, a sovereign node in the mesh...
+
+See full [Infernal Codex](docs/infernal-codex.md).
