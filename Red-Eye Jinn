@@ -1,0 +1,11 @@
+Red-EyeJinn/
+├── README.md              # Overview of the project, capsule purpose
+├── LICENSE                # MIT or Apache 2.0 license
+├── .gitignore             # Ignore logs, build artifacts, IPFS cache
+├── capsule-history.json   # CID history for capsule viewer
+├── mesh-status.json       # Mesh telemetry for dashboard
+├── docs/                  # Documentation, diagrams, architecture notes
+├── scripts/               # Helper scripts (publish, heartbeat, etc.)
+├── capsule/               # Capsule configs, IPNS keys, YAML
+├── mesh/                  # Mesh configs, ENU0 bindings, MQTT topics
+└── status/                # Status snapshots, forensic logs
