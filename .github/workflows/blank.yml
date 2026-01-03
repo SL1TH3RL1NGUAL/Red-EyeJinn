@@ -1,0 +1,121 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+
+            - name: Setup Node.js environment
+  uses: actions/setup-node@v6.1.0
+  with:
+    # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+    node-version: # optional
+    # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
+    node-version-file: # optional
+    # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
+    architecture: # optional
+    # Set this option if you want the action to check for the latest available version that satisfies the version spec.
+    check-latest: # optional
+    # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.
+    registry-url: # optional
+    # Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/).
+    scope: # optional
+    # Used to pull node distributions from node-versions. Since there's a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+    token: # optional, default is ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
+    cache: # optional
+    # Set to false to disable automatic caching. By default, caching is enabled when either devEngines.packageManager or the top-level packageManager field in package.json specifies npm as the package manager.
+    package-manager-cache: # optional, default is true
+    # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
+    cache-dependency-path: # optional
+    # Used to specify an alternative mirror to downlooad Node.js binaries from
+    mirror: # optional
+    # The token used as Authorization header when fetching from the mirror
+    mirror-token: # optional
+
+                - name: Deploy self-hosted runners to EC2 (Spot/On-Demand)
+  # You may pin to the exact commit or the version.
+  # uses: unblocked/ec2-action-builder@504a3cf746c6090065a66896a3addc2bb101b4ba
+  uses: unblocked/ec2-action-builder@v1.12
+  with:
+    # AWS access key ID
+    aws_access_key_id: 
+    # AWS secret access key
+    aws_secret_access_key: 
+    # AWS session token
+    aws_session_token: # optional
+    # AWS Region
+    aws_region: 
+    # ARN of IAM role to assume
+    aws_iam_role_arn: # optional, default is 
+    # GitHub token
+    github_token: 
+    # GitHub action runner version
+    github_action_runner_version: # optional
+    # GitHub action runner extra cli args
+    github_action_runner_extra_cli_args: # optional
+    # GitHub action runner label prefix (default is job id)
+    github_action_runner_label_prefix: # optional, default is 
+    # Maximum duration a runner instance is allowed to be idle before a job is started in seconds
+    github_job_start_ttl_seconds: # optional, default is 0
+    # Retry delay between calls to github APIs
+    github_api_retry_delay: # optional, default is 10
+    # Ec2 instance type
+    ec2_instance_type: 
+    # Ec2 ami ID
+    ec2_ami_id: 
+    # Ec2 IAM Instance Profile
+    ec2_iam_instance_profile: # optional
+    # Ec2 root disk size (defaults to AMI setting)
+    ec2_root_disk_size_gb: # optional, default is 0
+    # Ec2 root disk storage class (defaults to gp2)
+    ec2_root_disk_ebs_class: # optional, default is gp2
+    # IAM role for to associate with ec2 instance
+    ec2_instance_iam_role: # optional, default is 
+    # List of extra aws resource tags for ec2 instance
+    ec2_instance_tags: # optional, default is []
+    # Maximum duration an EC2 instance is allowed to live in minute
+    ec2_instance_ttl: # optional, default is 60
+    # Security group id
+    ec2_security_group_id: 
+    # Subnet id
+    ec2_subnet_id: 
+    # Spot instance scheduling modes:
+  None -> (default) no spot instances, use on-demand
+  SpotOnly -> Strictly spot instances only
+  BestEffort -> Use spot instances whenever they are cheaper than on-demand
+  MaxPerformance -> Use the largest spot instance in same class for <= the on-demand price 
+
+    ec2_spot_instance_strategy: # optional, default is none
+          
+          
